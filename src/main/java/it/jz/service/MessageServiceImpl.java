@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.reactivex.Observable;
 import it.jz.repo.MessageRepo;
-import rx.Observable;
 
 
 @Service
@@ -18,7 +18,7 @@ public class MessageServiceImpl implements MessageService
 	
 	
 	@Override
-	public Observable<List<String>> getMessages()
+	public Observable<String> getMessages()
 	{
 		return messageRepo.getMessages();
 	}

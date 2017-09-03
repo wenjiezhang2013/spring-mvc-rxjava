@@ -6,15 +6,15 @@ import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 
-import rx.Observable;
-import rx.functions.Func1;
+import io.reactivex.Observable;
+
 
 @Repository
 public class MessageRepoImpl implements MessageRepo
 {
 
 	@Override
-	public Observable<List<String>> getMessages()
+	public Observable<String> getMessages()
 	{
 		// Assuming we are reading data from database from here, and getting a
 		// hashset of string
@@ -23,15 +23,7 @@ public class MessageRepoImpl implements MessageRepo
 		messages.add("test3");
 		messages.add("test2");
 
-		return Observable.from(messages)
-		        .flatMap(new Func1<String, Observable<String>>()
-		        {
-
-			        public Observable<String> call(String t)
-			        {
-				        return Observable.just((t));
-			        }
-		        }).toList();
+		return Observable.fromIterable(messages);
 	}
 
 }

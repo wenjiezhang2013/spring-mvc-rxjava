@@ -1,10 +1,9 @@
 package it.jz.repo;
 
-import java.util.List;
+import io.reactivex.Observable;
 
-import rx.Observable;
 
 public interface MessageRepo
 {
-	public Observable<List<String>> getMessages();
+	public Observable<String> getMessages();
 }

@@ -1,10 +1,9 @@
 package it.jz.service;
 
-import java.util.List;
+import io.reactivex.Observable;
 
-import rx.Observable;
 
 public interface MessageService
 {
-	public Observable<List<String>> getMessages();
+	public Observable<String> getMessages();
 }
